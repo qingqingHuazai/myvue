@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div style="width: 100px;height: 100px;background: #77ff4f;"></div>
+    <div style="width: 100px;height: 100px;background: #ff8d66;"></div>
+    <div style="width: 100px;height: 100px;background: #f383ff;"></div>
+    <script>
+        /*
+        * javascript一出生就是一门异步的语言
+        * 异步:有多件事情同时执行
+        *      promise: 等待状态 使用频率很高
+        *
+        * */
+
+        //以下这个例子是同时打印的，同时执行多件事情，也就是异步的
+        /*setTimeout(function(){
+            console.log(1);
+        },2000)
+        setTimeout(function () {
+            console.log(2);
+        },2000)*/
+
+        /*let p = new Promise((resolve,reject)=>{//这两个参数是随意命名的
+                setTimeout(()=>{
+                    console.log(3);
+                    resolve("少卿");//还可以传递参数
+                },1000)
+                //reject("超华");
+
+            });
+
+        p.then(function (datas) {
+            /!*这里必须是一个promise对象*!/
+            setTimeout(function () {
+               console.log(datas);
+            },1000);
+        },function (data) {
+            setTimeout(()=>{
+                console.log(data);
+            },1000)
+
+        })*/
+
+
+        let p = function (data) {
+            return new Promise((resolve,reject)=>{//这两个参数是随意命名的
+                setTimeout(()=>{
+                    console.log(data);
+                    resolve("成功");//还可以传递参数
+                },1000)
+                //reject("超华");
+
+            });
+        }
+        //then():等待上一个promise对象执行完之后才执行的方法
+        p(1).then(function (data) {
+            /*这里必须是一个promise对象*/
+            /*如不是promise对象，之后的then将会同时执行*/
+            console.log(data);
+            console.log(this);//这里指的是window
+            return p(2);
+        })
+        .then(function () {
+            p(3);
+        })
+
+
+    </script>
+</body>
+</html>

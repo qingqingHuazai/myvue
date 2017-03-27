@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>函数的扩展</title>
+</head>
+<body>
+    <script>
+        /*
+        * 1、默认参数
+        *     接收多余参数：...参数的名字
+        *     注意的地方：...之后不能再写其他参数
+        *
+        * */
+        /*function fn(a,b,...c) {
+            console.log(c);  //c数组
+            console.log(...c);  //直接写
+            console.log(typeof(c));
+            console.log(c.length);
+        }
+        fn(1,2,3,4);*/
+
+        /*
+        * 2、默认参数
+        *    如果传值就用传的值，否则用默认的参数
+        *
+        * */
+        /*function fn2(a,b=2){
+            console.log(b);
+        }
+        fn2(1);*/
+
+        /*
+        * 3、箭头函数
+        *
+        * */
+        let fn3 = function () {
+
+        }
+        /*如只有一行代码，可以省略大括号
+        并不能当做一个正常的函数使用
+        只有一个函数的额时候，可以省略小括号
+        和整整函数的区别：
+          箭头函数不能用new命令，否则会报错
+          箭头函数不存在 arguments
+          this指向永远是指向定义时所在对象
+
+         箭头函数一般使用在回调函数中
+          */
+        let fn4 = a => console.log(a);
+        fn4(5);
+
+
+        let obj1 = {
+            name:"这是obj1",
+            a:function(){
+                setTimeout(()=>{
+                    console.log(this);
+                })
+            }
+
+        }
+        let obj2 = {
+            name:'这是obj2',
+            a:function(){
+                setTimeout(function(){
+                    console.log(this);
+                });
+            }
+
+        }
+        obj1.a();
+        obj2.a();
+    </script>
+</body>
+</html>

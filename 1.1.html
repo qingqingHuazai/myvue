@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    /*变量的拓展
+    *  1、let 在es6中是一个声明变量的关键字
+    *       特性
+    *       1、let 没有预解析  在es6中，新的声明自变量的关键字
+    *       2、不允许重复声明
+    *       3、块级作用域 {}称之为代码块
+    *
+    *    2、const
+    *       常量 固定的值 是不能被修改的
+    *       obj对象属性可以修改
+    * */
+
+    /*var let = 1;
+    var let = 2;*/
+    let a = 1;
+    //let a = 2;
+    //console.log(a);
+
+    /*{
+        let b = 2;
+    }
+    console.log(b);*/
+    for(var i=0;i<3;i++){
+        //只执行一次 永远比for 循环晚一步执行 循环完后i结果为3，故输出为3个3
+        //let 遇到代码块，形成了一个作用域，和闭包是一样的
+
+        setTimeout(function(){
+            console.log(i);
+        })
+
+        //无限执行
+        /*setInterval(function(){
+            console.log(i);
+        })*/
+    }
+
+    //以下情况是不允许的
+    /*const name = '少卿';
+    name ='少卿';*/
+
+    //定义对象是可以修改的
+    const obj = {
+        name : "少卿"
+    }
+    obj.name = "小少卿";
+    console.log(obj);
+
+</script>
+</html>

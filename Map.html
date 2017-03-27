@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        /*
+        * Map新增的一个数据结构，类似于一个对象,也可以用obj作为key,可以用任意的一个数作为key,这个不是常用的
+        *   1、size
+        *   2、set() 添加一个键值对;
+        *   3、has() 查找 通过key查找，返回true或者false;
+        *   4.delete() 通过key删除
+        * */
+        let obj = {};
+        let fn = function () {
+
+        }
+        let map = new Map([['name','shaoqing'],[obj,"这是一个obj"]]);
+        let map2 = new Map([['name','shaoqing'],[fn,"这是一个函数"]]);
+        console.log(map);
+        console.log(map2);
+        console.log(map.size);
+        console.log(map.set(obj,'obj'));
+        console.log(map2.has(fn));
+        console.log(map.delete(name));
+    </script>
+</body>
+</html>

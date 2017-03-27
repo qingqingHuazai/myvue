@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*
+    * Set es6新增的一个数据结构，是一个构造函数，所有的值唯一的
+    * 类似数组
+    *   size 相当于数组中的length
+    *   add()  添加，相当于数组中的push();
+    *   delete()  删除指定的值，Set独有的，成功返回true,否则返回false;
+    *   has() 查找 找到返回true,否则返回false;
+    *   clear() 清除所有的内容
+    * */
+    let arry = [1,'1',2,3,4];
+    let set = new Set([1,1,2,2]);
+    console.log(set);
+    console.log(set.size);
+    console.log(arry.length);
+    console.log(set.add(4));
+    console.log(set.delete(5));
+    console.log(set);
+    console.log(set.has(8));
+    set.clear()
+    console.log(set);
+</script>
+</body>
+</html>

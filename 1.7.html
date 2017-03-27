@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    /*
+    * 1、代理对象
+    *    有两个参数，
+    *    第一个是被代理的对象，
+    *    第二个是{get() 当对象被访问的时候，get函数就会被触发}
+    * */
+
+   /* let obj = {
+        a:6,
+        b:2
+    }
+    let p1 = new Proxy(obj,{//代理对象，数组不可以代理
+        get(obj,key){
+            //obj,对象本身，key被访问属性的下标
+
+           // console.log(obj, key);
+            // return "123";
+          return obj[key];//访问到值
+           // return key;
+        },
+        set(obj,key,value){
+            //obj 对象  key下标   value 修改的值 也就是外面的定义的p1.a = 4这个值
+            if(value<4){
+                //如果设置的值小于4,被访问的值=设置的值
+                obj[key] = value;
+            }
+        }
+    })
+    p1.a = 3;
+    console.log(p1.a);
+    console.log(obj.a);//前后相等，说明对象的值是可以被修改的*/
+
+
+    /*
+    * 2、定义对象的方法
+    *
+    * */
+    /*let obj2 = {
+        name:'shaoqign',
+        fn(){},
+        ["wu"+"lv"]:2333
+    }
+    console.log(obj2.name);
+    console.log(obj2.fn);
+    console.log(obj2.wulv);*/
+
+    /*
+    * 3、Object.is //用于判断参数是否相等的
+    *
+    * */
+    /*console.log(Object.is(0,-0));
+    console.log(0===-0);//不能判断出来*/
+
+    /*
+    * 4、Object.assign();
+    *    多个Obj赋值到一个里面，第一个参数，被赋值的对象，剩下的所有参数赋值对象
+    *    如果重复，后面覆盖前面的
+    *
+    * */
+    /*let obj = {};
+    let obj1 = {
+        name:"shaoqing",
+        age :25
+    };
+    let obj2 = {
+        name:"chaohua",
+        height:175
+    }
+    Object.assign(obj,obj1,obj2);
+    console.log(obj);*/
+
+    /*
+    * 5、获取对象prototype
+    *   getPrototypeOf();获取
+    *   setPrototypeOf(d,cat.prototype);  //会把原有的prototype覆盖掉
+    * */
+    let cat = function(name){
+        this.name= name;
+    }
+    let dog = function(){
+
+    };
+    cat.prototype.showname = function(){
+        return this.name;
+    }
+    dog.prototype.getColor = function(){
+
+    }
+    let c = new cat('c');
+    let d = new dog();
+    console.log(Object.getPrototypeOf(c));
+    Object.setPrototypeOf(d,cat.prototype);
+    console.log(Object.getPrototypeOf(c));
+    console.log(Object.getPrototypeOf(d));
+</script>
+</html>

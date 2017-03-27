@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*
+    * 循坏的拓展
+    *
+    * */
+    let str = "lucy";//字符串
+    let arry = [2,3,4];//数组
+    /*let obj = {
+     a:1,
+     b:2,
+     c:3
+     }*/
+
+    let obj = {
+        a:1,
+        b:2,
+        c:3
+    };
+    /*console.log(obj);
+    for(let value of str){//遍历的是值
+        console.log(value);
+    }*/
+    /*for(let key of str.keys()){
+        console.log(key);
+    }*/
+
+    for(let key of arry.keys()){//遍历的是下标,遍历数组，不能遍历字符串
+        console.log(key);
+    }
+    for(let key of arry){//遍历的是值
+        console.log(key);
+    }
+
+    //遍历对象的值
+    for(let value of Object.values(obj)){
+        console.log(value);
+    }
+    for(let key of Object.keys(obj)){
+        console.log(key);
+    }
+
+</script>
+</body>
+</html>

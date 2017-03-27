@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        /*
+        * 字符串的拓展
+        *  1、拼接字符串，用反引号声明，拼接变量的方式：${变量名}
+        *         可以进行运算
+        *         换行可以直接换
+        * */
+        let num = 1;
+        let str = `${num+1}
+        wuli`;
+        console.log(str);
+
+        /*
+        * 查找字符串
+        *   includes()，如果字符串存在，则返回true
+        *   startsWith(),查找是否在头部 返回true或者false
+        *   endsWith(),查找是否在尾部
+        *   都有一个共同的参数，从第几位开始找(从0开始数起)
+        * */
+        let a1 = "shaoqing";
+        console.log(a1.includes("a",3));
+        console.log(a1.startsWith("d"));
+        console.log(a1.endsWith("i",2));
+
+        console.log(a1.repeat(3));//复制字符串
+
+        /*
+        * 正则匹配表达式
+        *       y结尾，从上次匹配的地方开始匹配的
+        *       第一次匹配的是 aaa_aa_a
+        *       第二次匹配的是 _aa_a
+        *
+        * */
+        let a3 = 'aaa_aa_a';
+        let r1 = /a{2}/g;
+        let r2 = /a+/y
+        console.log(r1.exec(a3));
+        console.log(r1.exec(a3));
+        console.log(r2.exec(a3));
+        console.log(r2.exec(a3));
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script>
+        /*
+        * Array.from(); 将类数组对象转化成真正的对象
+        * Array.of();  接收一组参数，将其转化成真正的数组
+        * find(function(value,key){return a}) ; 遍历value或key的值，查找符合条件的值并停止遍历将结果返回
+        * findIndex(function(value,key){}) ; 如果找不到就是-1;
+        * */
+
+        /*let divs =document.getElementsByTagName("div");
+        console.log(divs);
+        let str = "lucy";
+        let array = Array.from(divs);
+        let array2 = Array.from(str);
+        console.log(array);
+        console.log(array2);*/
+
+        console.log(Array.of(1,2,3,4));
+        let array3 = [1,2,3,4,5];
+        /*let n = array3.find(function (value,key) {//key就是下标
+            //return  value > 3;
+            return key > 3;
+        });*/
+
+        /*let n = array3.findIndex(function(value,key){
+            return value > 2;
+        });
+        console.log(n);*/
+
+        /*
+        * 替换数组里的值
+        *       push();之前的方法
+        *       fill();1、要填充的值，2、开始位置，3、结束位置
+        * */
+       // console.log(array3.push(8));
+        console.log(array3.fill(6,2,3));
+    </script>
+</body>
+</html>
